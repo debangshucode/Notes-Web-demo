@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <div class="hero">
+        <div class="form_box">
+            <div class="button_box">
+                <div id="btn"></div>
+                <button type="button" class="toggle_btn" onclick="login()" id="loginBtn">Log In</button>
+                <button type="button" class="toggle_btn" onclick="register()" id="registerBtn">Register</button>
+            </div>
+            <form id="login" class="input_grp" action="">
+                <input type="text" class="input_field" placeholder="User Id" id="userId" required>
+                <input type="password" class="input_field" placeholder="Enter Password" id="pass" required>
+                <input type="checkbox" class="checkbox"><span>Remember Password</span>
+                <button type="button" class="submit_btn" onclick="auth()">Log in</button>
+            </form>
+            <form id="register" class="input_grp">
+                <input type="text" class="input_field" placeholder="User Id" required>
+                <input type="email" class="input_field" placeholder="Email Id" required>
+                <input type="password" class="input_field" placeholder="Enter Password" required>
+                <input type="checkbox" class="checkbox"><span>I agree to the terms & conditions</span>
+                <button type="submit" class="submit_btn" >Register</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        var x= document.getElementById("login");
+        var y= document.getElementById("register");
+        var z= document.getElementById("btn");
+        var loginBtn = document.getElementById("loginBtn");
+        var registerBtn = document.getElementById("registerBtn");
+
+        function register() {
+            x.style.left = "-400px";
+            y.style.left = "50px";
+            z.style.left = "110px";
+            loginBtn.style.color = "black";
+            registerBtn.style.color = "white";
+        }
+        function login() {
+            x.style.left = "50px";
+            y.style.left = "450px";
+            z.style.left = "0";
+            loginBtn.style.color = "white";
+            registerBtn.style.color = "black";
+        }
+
+        function auth() {
+            
+
+            var userId = document.getElementById("userId").value;
+            var password = document.getElementById("pass").value;
+
+            if (userId =="admin" && password =="1234") {
+                
+                window.location.assign("home.html");
+                return false;
+            } else {
+                
+                alert('Invalid credentials. Please try again.');
+                return false;
+            }
+        }
+
+
+    </script>
+</body>
+</html>
